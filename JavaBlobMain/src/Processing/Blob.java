@@ -11,13 +11,13 @@ public class Blob {
     static int distanceThreshold = 10;
     static int colorThreshold = 35;
 
-    public Blob (Pixel firstPixel){
+    public Blob (Pixel firstPixel, Scalar blobHSV){
         minCorner = firstPixel;
         maxCorner = firstPixel;
 
         center = firstPixel;
 
-        blobHSV = firstPixel.colorHSV;
+        this.blobHSV = blobHSV;
     }
 
     public void addPixel(Pixel pixel){
