@@ -1,2 +1,2 @@
 # BlobDetection
-Attempt at Blob Detection using color thresholds
+First attempt at Blob Detection using color thresholds
