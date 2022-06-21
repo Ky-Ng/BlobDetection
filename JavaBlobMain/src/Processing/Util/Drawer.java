@@ -13,7 +13,7 @@ public class Drawer {
     public static void drawBLobs(Mat canvas, ArrayList<Blob> blobList){
         System.out.println("Blob List size " + blobList.size());
         for (Blob b : blobList){
-            Imgproc.rectangle(canvas, b.getMinCorner(), b.getMaxCorner(), drawColor);
+            Imgproc.rectangle(canvas, b.getMinCorner(), b.getMaxCorner(), drawColor, 3);
 //            System.out.println("Drawing a Blob, count " + count);
 //            count++;
         }

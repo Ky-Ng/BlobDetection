@@ -1,6 +1,6 @@
 package Processing;
 
-import Processing.Util.Distance;
+import Processing.Util.BlobsUtil;
 import Processing.Util.Pixel;
 import org.opencv.core.Point;
 import org.opencv.core.Scalar;
@@ -36,11 +36,11 @@ public class Blob {
 
     // Check if the target pixel is near enough to be considered part of this blob
     public boolean isNear(Pixel pixel){
-        return Distance.getDistance2D(center, pixel) < distanceThreshold;
+        return BlobsUtil.getDistance2D(center, pixel) < distanceThreshold;
     }
 
     public boolean isInColorRange(Pixel pixel){
-        return Distance.getColorDistance(blobRGB, pixel.colorRGB) < colorThreshold;
+        return BlobsUtil.getColorDistance(blobRGB, pixel.colorRGB) < colorThreshold;
     }
 
     public Point getMinCorner(){
@@ -52,6 +52,10 @@ public class Blob {
 
     public Pixel getCenter() {
         return center;
+    }
+
+    public int getArea(){
+        return (maxCorner.x - minCorner.x) * (maxCorner.y - minCorner.y);
     }
 
     @Override

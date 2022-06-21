@@ -6,7 +6,7 @@ import org.opencv.core.Scalar;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class Distance {
+public class BlobsUtil {
     public static int getDistance2D(Pixel pixel1, Pixel pixel2){
         return (int) Math.sqrt(
                 Math.pow((pixel1.x - pixel2.x), 2) + Math.pow((pixel1.y - pixel2.y), 2)
@@ -30,7 +30,22 @@ public class Distance {
                 + " | Color Distance " + getColorDistance(blobs.get(i).getCenter().colorRGB, blobs.get(j).getCenter().colorRGB));
             }
         }
+    }
 
+    public static void printArea(ArrayList<Blob> blobs){
+        for(Blob b : blobs){
+            System.out.println("Area " +b.getArea());
+        }
+    }
 
+    //remove small blobs and merge close ones
+    public static void pruneBlobs(ArrayList<Blob> blobs) {
+        // remove the small blobs
+        for (int i = 0; i < blobs.size(); i++) {
+            if (blobs.get(i).getArea() < 5) {
+                blobs.remove(i);
+                i--;
+            }
+        }
     }
 }

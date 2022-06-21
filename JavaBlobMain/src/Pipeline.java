@@ -1,5 +1,5 @@
 import Processing.Blob;
-import Processing.Util.Distance;
+import Processing.Util.BlobsUtil;
 import Processing.Util.Drawer;
 import Processing.Util.Pixel;
 import org.opencv.core.*;
@@ -7,9 +7,7 @@ import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import static org.opencv.core.Core.NATIVE_LIBRARY_NAME;
 
@@ -34,7 +32,7 @@ public class Pipeline {
 
                 if (blobs.isEmpty()){
                     System.out.println("empty blob list " + x);
-                    if (Distance.getColorDistance(pixel.colorRGB, targetRGB) < Blob.colorThreshold){
+                    if (BlobsUtil.getColorDistance(pixel.colorRGB, targetRGB) < Blob.colorThreshold){
                         blobs.add(new Blob(pixel));
                         System.out.println("First Blob Found");
                     }
@@ -55,13 +53,15 @@ public class Pipeline {
                 Imgproc.rectangle(imgSource, new Point(x, y), new Point(x+3, y+3), new Scalar(150,30,150));
 //                Drawer.drawBLobs(imgSource, blobs);
                 HighGui.imshow("Source Image", imgSource);
-                HighGui.waitKey(30);
+                HighGui.waitKey(1);
             }
         }
 
         //display image
+        BlobsUtil.pruneBlobs(blobs);
         Drawer.drawBLobs(imgSource, blobs);
-        Distance.printDistance(blobs);
+        BlobsUtil.printDistance(blobs);
+        BlobsUtil.printArea(blobs);
         HighGui.imshow("Source Image", imgSource);
         HighGui.waitKey(0);
     }
