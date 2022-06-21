@@ -23,12 +23,7 @@ public class Blob {
         this.blobRGB = firstPixel.colorRGB;
     }
 
-    public void addPixel(Pixel pixel){
-        System.out.println();
-        System.out.println("Added Pixel " + pixel);
-        System.out.println("Min Corner before adjustment " + minCorner);
-        System.out.println("Max Corner before adjustment " + maxCorner);
-
+    public void addPixel(Pixel pixel) {
 //        minCorner.x = Math.min(minCorner.x, pixel.x);
 //        minCorner.y = Math.min(minCorner.y, pixel.y);
 //
@@ -42,18 +37,15 @@ public class Blob {
 //        maxCorner.y = Math.max(300, 230);
 
 
-
-        maxCorner.x = 100;
-        maxCorner.y = 150;
-
-        minCorner.x = 35;
-        minCorner.y = 555;
+//        maxCorner.x = 100;
+//        maxCorner.y = 150;
+//
+//        minCorner.x = 35;
+//        minCorner.y = 555;
+        minCorner.y  = 69420;
 
         center.x = (minCorner.x + maxCorner.x) / 2;
         center.y = (minCorner.y + maxCorner.y) / 2;
-
-        System.out.println("Min Corner after adjustment " + minCorner.toString());
-        System.out.println("Max Corner after adjustment " + maxCorner.toString());
     }
 
     // Check if the target pixel is near enough to be considered part of this blob
@@ -70,5 +62,14 @@ public class Blob {
     }
     public Point getMaxCorner(){
         return new Point(maxCorner.x, maxCorner.y);
+    }
+
+    @Override
+    public String toString() {
+        return "Blob " +
+                "minCorner = " + minCorner +
+                ", maxCorner = " + maxCorner +
+                ", center = " + center;
+//                + ", color = " + blobRGB;
     }
 }
