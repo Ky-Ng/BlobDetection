@@ -53,7 +53,7 @@ public class Pipeline {
                     }
                 }
                 Imgproc.rectangle(imgSource, new Point(x, y), new Point(x+3, y+3), new Scalar(150,30,150));
-                Drawer.drawBLobs(imgSource, blobs);
+//                Drawer.drawBLobs(imgSource, blobs);
                 HighGui.imshow("Source Image", imgSource);
                 HighGui.waitKey(30);
             }
@@ -61,6 +61,7 @@ public class Pipeline {
 
         //display image
         Drawer.drawBLobs(imgSource, blobs);
+        Distance.printDistance(blobs);
         HighGui.imshow("Source Image", imgSource);
         HighGui.waitKey(0);
     }

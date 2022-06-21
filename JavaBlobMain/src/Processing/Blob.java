@@ -50,6 +50,10 @@ public class Blob {
         return new Point(maxCorner.x +2, maxCorner.y+2);
     }
 
+    public Pixel getCenter() {
+        return center;
+    }
+
     @Override
     public String toString() {
         return "Blob " +
