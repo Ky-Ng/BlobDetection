@@ -9,7 +9,7 @@ public class Blob {
     Pixel minCorner, maxCorner, center;
     Scalar blobRGB;
 
-    static int distanceThreshold = 10;
+    static int distanceThreshold = 100;
     public static int colorThreshold = 100;
 
     public Blob (Pixel firstPixel){

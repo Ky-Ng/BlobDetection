@@ -33,8 +33,8 @@ public class Pipeline {
                         + " BGR " + (int)imgSource.get(xDebug,yDebug)[0] + ", " + (int)imgSource.get(xDebug,yDebug)[1] + ", " + (int)imgSource.get(xDebug,yDebug)[2]
             + " RGB " + (int)imgSource.get(xDebug,yDebug)[2] + ", " + (int)imgSource.get(xDebug,yDebug)[1] + ", " + (int)imgSource.get(xDebug,yDebug)[0]
             );
-        for (int x = 0; x < imgSource.rows(); x +=25) {
-            for (int y = 0; y < imgSource.cols(); y+=25) {
+        for (int x = 0; x < imgSource.rows(); x +=30) {
+            for (int y = 0; y < imgSource.cols(); y+=30) {
 //                System.out.println("x: " + x + "| y: " + y);
                 Pixel pixel = new Pixel(x,y, imgSource.get(x,y));
 
@@ -51,6 +51,7 @@ public class Pipeline {
                         if (blobs.get(i).isNear(pixel)){
                             blobs.get(i).addPixel(pixel);
                             System.out.println("Added pixel, XY: " + x + ", " + y + " to a blob");
+                            break;
                         } else{
                             blobs.add(new Blob(pixel));
                             System.out.println("Added new Blob");
@@ -60,9 +61,17 @@ public class Pipeline {
             }
         }
 
-        Drawer.drawBLobs(imgSource, blobs);
+
 
         //display image
+//        Drawer.drawBLobs(imgSource, blobs);
+        System.out.println("Blob List size" + blobs.size());
+        for (Blob b : blobs){
+            System.out.println("Blob corner 1");
+            Imgproc.rectangle(imgSource, b.getMinCorner(), b.getMaxCorner(), new Scalar(0,0,0));
+//            System.out.println("Drawing a Blob, count " + count);
+//            count++;
+        }
         HighGui.imshow("Source Image", imgSource);
         HighGui.waitKey(0);
     }
