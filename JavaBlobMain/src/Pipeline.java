@@ -11,15 +11,13 @@ import static org.opencv.core.Core.NATIVE_LIBRARY_NAME;
 
 public class Pipeline {
     static String AssetsFolder = "/Users/kyleng/IdeaProjects/BlobDetection/JavaBlobMain/src/Assets/";
+
     public static void main(String[] args) {
         System.loadLibrary(NATIVE_LIBRARY_NAME);
         System.out.println("Init OpenCV " + Core.VERSION);
 
         // show image
-        Mat imgSource = Imgcodecs.imread(AssetsFolder +
-//                "rgb_image.jpg"
-                "cyan.png"
-        );
+        Mat imgSource = Imgcodecs.imread(AssetsFolder + "blueFish.jpg");
 
         HighGui.imshow("Source Image", imgSource);
 
