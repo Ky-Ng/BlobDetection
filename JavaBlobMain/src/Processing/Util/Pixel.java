@@ -23,6 +23,10 @@ public class Pixel {
         this.y = 0;
     }
 
+    public Pixel copy(){
+        return new Pixel(x,y,colorRGB);
+    }
+
     @Override
     public String toString() {
         return "(" + x + ", " + y + ")";

@@ -15,8 +15,8 @@ public class Blob {
     public static int colorThreshold = 100;
 
     public Blob (Pixel firstPixel){
-        minCorner = firstPixel;
-        maxCorner = firstPixel;
+        minCorner = firstPixel.copy();
+        maxCorner = firstPixel.copy();//new Pixel(0,0,new Scalar(0,0,0));
 
         center = firstPixel;
 
@@ -24,11 +24,11 @@ public class Blob {
     }
 
     public void addPixel(Pixel pixel) {
-//        minCorner.x = Math.min(minCorner.x, pixel.x);
-//        minCorner.y = Math.min(minCorner.y, pixel.y);
-//
-//        maxCorner.x = Math.max(maxCorner.x, pixel.x);
-//        maxCorner.y = Math.max(maxCorner.y, pixel.y);
+        minCorner.x = Math.min(minCorner.x, pixel.x);
+        minCorner.y = Math.min(minCorner.y, pixel.y);
+
+        maxCorner.x = Math.max(maxCorner.x, pixel.x);
+        maxCorner.y = Math.max(maxCorner.y, pixel.y);
 
 //        minCorner.x = Math.min(2, 55);
 //        minCorner.y = Math.min(300, 230);
@@ -42,10 +42,10 @@ public class Blob {
 //
 //        minCorner.x = 35;
 //        minCorner.y = 555;
-        minCorner.y  = 69420;
+//        minCorner.setX(69420);
 
-        center.x = (minCorner.x + maxCorner.x) / 2;
-        center.y = (minCorner.y + maxCorner.y) / 2;
+//        center.x = (minCorner.x + maxCorner.x) / 2;
+//        center.y = (minCorner.y + maxCorner.y) / 2;
     }
 
     // Check if the target pixel is near enough to be considered part of this blob

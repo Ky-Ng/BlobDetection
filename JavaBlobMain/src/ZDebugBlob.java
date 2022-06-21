@@ -12,7 +12,7 @@ public class ZDebugBlob {
         System.out.println("Min Corner = " + blob.getMinCorner());
         System.out.println("Max Corner = " + blob.getMaxCorner());
 
-        Pixel addPixel = new Pixel(3,7, new Scalar(0,0,0));
+        Pixel addPixel = new Pixel(0,7, new Scalar(0,0,0));
         System.out.println("Add Pixel " + addPixel);
 
         blob.addPixel(addPixel);
