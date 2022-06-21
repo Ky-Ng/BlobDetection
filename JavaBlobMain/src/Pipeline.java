@@ -65,10 +65,20 @@ public class Pipeline {
 
         //display image
 //        Drawer.drawBLobs(imgSource, blobs);
-        System.out.println("Blob List size" + blobs.size());
+        Blob testBlob = new Blob(new Pixel(0,300, new Scalar(65, 43,100)));
+        testBlob.addPixel(new Pixel(55,230, new Scalar(65, 43, 100)));
+        Imgproc.rectangle(imgSource, testBlob.getMinCorner(), testBlob.getMaxCorner(), new Scalar(255,35,0));
+
+//        System.out.println("blob MinCorner points "+ testBlob.getMinCorner().x +", " + testBlob.getMinCorner().y);
+//        System.out.println("blob MaxCorner points "+ testBlob.getMaxCorner().x +", " + testBlob.getMaxCorner().y);
+
+        Imgproc.rectangle(imgSource, new Point(30, 45), new Point(30+3, 45+3), new Scalar(255,35,0));
+        blobs.add(testBlob);
+
+        System.out.println("Blob List size " + blobs.size());
         for (Blob b : blobs){
-            System.out.println("Blob corner 1");
-            Imgproc.rectangle(imgSource, b.getMinCorner(), b.getMaxCorner(), new Scalar(0,0,0));
+//            System.out.println("Blob corner 1");
+            Imgproc.rectangle(imgSource, b.getMinCorner(), b.getMaxCorner(), new Scalar(255,35,0));
 //            System.out.println("Drawing a Blob, count " + count);
 //            count++;
         }

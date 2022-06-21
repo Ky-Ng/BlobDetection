@@ -6,10 +6,12 @@ import org.opencv.core.Point;
 import org.opencv.core.Scalar;
 
 public class Blob {
-    Pixel minCorner, maxCorner, center;
+    Pixel minCorner;
+    Pixel maxCorner;
+    Pixel center;
     Scalar blobRGB;
 
-    static int distanceThreshold = 100;
+    static int distanceThreshold = 500;
     public static int colorThreshold = 100;
 
     public Blob (Pixel firstPixel){
@@ -22,14 +24,36 @@ public class Blob {
     }
 
     public void addPixel(Pixel pixel){
-        minCorner.x = Math.min(minCorner.x, pixel.x);
-        minCorner.y = Math.min(minCorner.y, pixel.y);
+        System.out.println();
+        System.out.println("Added Pixel " + pixel);
+        System.out.println("Min Corner before adjustment " + minCorner);
+        System.out.println("Max Corner before adjustment " + maxCorner);
 
-        maxCorner.x = Math.max(maxCorner.x, pixel.x);
-        maxCorner.y = Math.max(maxCorner.y, pixel.y);
+//        minCorner.x = Math.min(minCorner.x, pixel.x);
+//        minCorner.y = Math.min(minCorner.y, pixel.y);
+//
+//        maxCorner.x = Math.max(maxCorner.x, pixel.x);
+//        maxCorner.y = Math.max(maxCorner.y, pixel.y);
+
+//        minCorner.x = Math.min(2, 55);
+//        minCorner.y = Math.min(300, 230);
+//
+//        maxCorner.x = Math.max(0, 55);
+//        maxCorner.y = Math.max(300, 230);
+
+
+
+        maxCorner.x = 100;
+        maxCorner.y = 150;
+
+        minCorner.x = 35;
+        minCorner.y = 555;
 
         center.x = (minCorner.x + maxCorner.x) / 2;
         center.y = (minCorner.y + maxCorner.y) / 2;
+
+        System.out.println("Min Corner after adjustment " + minCorner.toString());
+        System.out.println("Max Corner after adjustment " + maxCorner.toString());
     }
 
     // Check if the target pixel is near enough to be considered part of this blob

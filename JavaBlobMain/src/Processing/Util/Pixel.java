@@ -22,4 +22,9 @@ public class Pixel {
         this.x = 0;
         this.y = 0;
     }
+
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ")";
+    }
 }
