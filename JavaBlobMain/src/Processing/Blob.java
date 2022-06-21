@@ -11,9 +11,6 @@ public class Blob {
     Pixel center;
     Scalar blobRGB;
 
-    static int distanceThreshold = 290;
-    public static int colorThreshold = 150;
-
     public Blob (Pixel firstPixel){
         minCorner = firstPixel.copy();
         maxCorner = firstPixel.copy();//new Pixel(0,0,new Scalar(0,0,0));
@@ -36,11 +33,11 @@ public class Blob {
 
     // Check if the target pixel is near enough to be considered part of this blob
     public boolean isNear(Pixel pixel){
-        return BlobsUtil.getDistance2D(center, pixel) < distanceThreshold;
+        return BlobsUtil.getDistance2D(center, pixel) < Parameters.DistanceThreshold;
     }
 
     public boolean isInColorRange(Pixel pixel){
-        return BlobsUtil.getColorDistance(blobRGB, pixel.colorRGB) < colorThreshold;
+        return BlobsUtil.getColorDistance(blobRGB, pixel.colorRGB) < Parameters.ColorThreshold;
     }
 
     public Point getMinCorner(){

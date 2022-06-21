@@ -1,4 +1,5 @@
 import Processing.Blob;
+import Processing.Parameters;
 import Processing.Util.BlobsUtil;
 import Processing.Util.Drawer;
 import Processing.Util.Pixel;
@@ -12,15 +13,12 @@ import java.util.ArrayList;
 import static org.opencv.core.Core.NATIVE_LIBRARY_NAME;
 
 public class Pipeline {
-    static String AssetsFolder = "/Users/kyleng/IdeaProjects/BlobDetection/JavaBlobMain/src/Assets/";
-    static Scalar targetRGB = new Scalar(53, 143, 253);
-
     public static void main(String[] args) {
         System.loadLibrary(NATIVE_LIBRARY_NAME);
         System.out.println("Init OpenCV " + Core.VERSION);
 
         //create image
-        Mat imgSource = Imgcodecs.imread(AssetsFolder + "blueFish.jpg");
+        Mat imgSource = Imgcodecs.imread(Parameters.AssetsFolder + Parameters.ImageName);
         Mat blobProcess = imgSource.clone();
         Mat prePrune = imgSource.clone();
         Mat postPrune = imgSource.clone();
@@ -35,7 +33,7 @@ public class Pipeline {
 
                 if (blobs.isEmpty()){
                     System.out.println("empty blob list " + x);
-                    if (BlobsUtil.getColorDistance(pixel.colorRGB, targetRGB) < Blob.colorThreshold){
+                    if (BlobsUtil.getColorDistance(pixel.colorRGB, Parameters.TargetRGB) < Parameters.ColorThreshold){
                         blobs.add(new Blob(pixel));
                         System.out.println("First Blob Found");
                     }
