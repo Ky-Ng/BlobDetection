@@ -1,3 +1,5 @@
+package Debug;
+
 import Processing.Blob;
 import Processing.Util.Drawer;
 import Processing.Util.Pixel;

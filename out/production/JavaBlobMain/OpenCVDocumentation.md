@@ -27,7 +27,7 @@ https://stackoverflow.com/questions/25642532/opencv-pointx-y-represent-column-ro
 
 
 
-Note that in the MatPixel.getColor() and Imgproc (new Scalar) use [0,1,2] channel 
+Note that in the MatPixel.getColor() and Imgproc.rectangle (new Scalar) use [0,1,2] channel 
 
 [0] = B
 [1] = G

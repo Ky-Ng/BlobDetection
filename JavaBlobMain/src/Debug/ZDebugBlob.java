@@ -1,3 +1,5 @@
+package Debug;
+
 import Processing.Blob;
 import Processing.Util.Pixel;
 import org.opencv.core.Scalar;
