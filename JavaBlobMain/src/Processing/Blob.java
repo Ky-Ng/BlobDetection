@@ -7,17 +7,18 @@ import org.opencv.core.Scalar;
 
 public class Blob {
     Pixel minCorner, maxCorner, center;
-    Scalar blobHSV;
-    static int distanceThreshold = 10;
-    static int colorThreshold = 35;
+    Scalar blobRGB;
 
-    public Blob (Pixel firstPixel, Scalar blobHSV){
+    static int distanceThreshold = 10;
+    public static int colorThreshold = 35;
+
+    public Blob (Pixel firstPixel){
         minCorner = firstPixel;
         maxCorner = firstPixel;
 
         center = firstPixel;
 
-        this.blobHSV = blobHSV;
+        this.blobRGB = firstPixel.colorRGB;
     }
 
     public void addPixel(Pixel pixel){
@@ -37,7 +38,7 @@ public class Blob {
     }
 
     public boolean isInColorRange(Pixel pixel){
-        return Distance.getColorDistance(blobHSV, pixel.colorHSV) < colorThreshold;
+        return Distance.getColorDistance(blobRGB, pixel.colorRGB) < colorThreshold;
     }
 
     public Point getMinCorner(){

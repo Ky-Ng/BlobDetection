@@ -4,18 +4,18 @@ import org.opencv.core.Scalar;
 
 public class Pixel {
     public int x, y;
-    public Scalar colorHSV;
+    public Scalar colorRGB;
 
-    public Pixel(int x, int y, Scalar colorHSV){
+    public Pixel(int x, int y, Scalar colorRGB){
         this.x = x;
         this.y = y;
-        this.colorHSV = colorHSV;
+        this.colorRGB = colorRGB;
     }
 
-    public Pixel(int x, int y, double[] colorHSV){
+    public Pixel(int x, int y, double[] colorBGR){
         this.x = x;
         this.y = y;
-        this.colorHSV = new Scalar(colorHSV[0], colorHSV[1], colorHSV[2]);
+        this.colorRGB = new Scalar(colorBGR[2], colorBGR[1], colorBGR[1]);
     }
 
     public Pixel() {
