@@ -8,11 +8,12 @@ import org.opencv.imgproc.Imgproc;
 import java.util.ArrayList;
 
 public class Drawer {
-    Scalar drawColor = new Scalar(130,130,130);
+    static Scalar drawColor = new Scalar(130,130,130);
 
-    public Drawer (Mat canvas, ArrayList<Blob> blobList){
+    public static void drawBLobs(Mat canvas, ArrayList<Blob> blobList){
         for (Blob b : blobList){
-            Imgproc.rectangle(canvas, b.getMinCorner(), b.getMinCorner(), drawColor);
+            Imgproc.rectangle(canvas, b.getMinCorner(), b.getMaxCorner(), drawColor);
+
         }
     }
 }

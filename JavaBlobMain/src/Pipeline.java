@@ -1,5 +1,6 @@
 import Processing.Blob;
 import Processing.Util.Distance;
+import Processing.Util.Drawer;
 import Processing.Util.Pixel;
 import org.opencv.core.*;
 import org.opencv.highgui.HighGui;
@@ -25,30 +26,41 @@ public class Pipeline {
 
         // process image
         ArrayList<Blob> blobs = new ArrayList<>();
-
-        for (int x = 0; x < imgSource.cols(); x ++) {
-            for (int y = 0; y < imgSource.rows(); y++) {
+            System.out.println("Rows: " + imgSource.rows() + " Cols: " + imgSource.cols());
+        int xDebug = 11, yDebug = 383;
+        System.out.println(
+                "X " + xDebug  + " Y " + yDebug
+                        + " BGR " + (int)imgSource.get(xDebug,yDebug)[0] + ", " + (int)imgSource.get(xDebug,yDebug)[1] + ", " + (int)imgSource.get(xDebug,yDebug)[2]
+            + " RGB " + (int)imgSource.get(xDebug,yDebug)[2] + ", " + (int)imgSource.get(xDebug,yDebug)[1] + ", " + (int)imgSource.get(xDebug,yDebug)[0]
+            );
+        for (int x = 0; x < imgSource.rows(); x +=25) {
+            for (int y = 0; y < imgSource.cols(); y+=25) {
+//                System.out.println("x: " + x + "| y: " + y);
                 Pixel pixel = new Pixel(x,y, imgSource.get(x,y));
 
                 if (blobs.isEmpty()){
+                    System.out.println("empty blob list" + x);
                     if (Distance.getColorDistance(pixel.colorRGB, targetRGB) < Blob.colorThreshold){
                         blobs.add(new Blob(pixel));
+                        System.out.println("First Blob Found");
                     }
                 }
 
-                for (Blob b : blobs){
-                    if (b.isInColorRange(pixel)){
-                        if (b.isNear(pixel)){
-                            b.addPixel(pixel);
+                for (int i = 0; i < blobs.size(); i++){
+                    if (blobs.get(i).isInColorRange(pixel)){
+                        if (blobs.get(i).isNear(pixel)){
+                            blobs.get(i).addPixel(pixel);
+                            System.out.println("Added pixel, XY: " + x + ", " + y + " to a blob");
                         } else{
                             blobs.add(new Blob(pixel));
+                            System.out.println("Added new Blob");
                         }
                     }
                 }
             }
         }
 
-
+        Drawer.drawBLobs(imgSource, blobs);
 
         //display image
         HighGui.imshow("Source Image", imgSource);
