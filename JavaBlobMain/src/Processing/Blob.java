@@ -11,7 +11,7 @@ public class Blob {
     Pixel center;
     Scalar blobRGB;
 
-    static int distanceThreshold = 500;
+    static int distanceThreshold = 290;
     public static int colorThreshold = 100;
 
     public Blob (Pixel firstPixel){
@@ -30,22 +30,8 @@ public class Blob {
         maxCorner.x = Math.max(maxCorner.x, pixel.x);
         maxCorner.y = Math.max(maxCorner.y, pixel.y);
 
-//        minCorner.x = Math.min(2, 55);
-//        minCorner.y = Math.min(300, 230);
-//
-//        maxCorner.x = Math.max(0, 55);
-//        maxCorner.y = Math.max(300, 230);
-
-
-//        maxCorner.x = 100;
-//        maxCorner.y = 150;
-//
-//        minCorner.x = 35;
-//        minCorner.y = 555;
-//        minCorner.setX(69420);
-
-//        center.x = (minCorner.x + maxCorner.x) / 2;
-//        center.y = (minCorner.y + maxCorner.y) / 2;
+        center.x = (minCorner.x + maxCorner.x) / 2;
+        center.y = (minCorner.y + maxCorner.y) / 2;
     }
 
     // Check if the target pixel is near enough to be considered part of this blob
@@ -61,7 +47,7 @@ public class Blob {
         return new Point(minCorner.x, minCorner.y);
     }
     public Point getMaxCorner(){
-        return new Point(maxCorner.x, maxCorner.y);
+        return new Point(maxCorner.x +2, maxCorner.y+2);
     }
 
     @Override

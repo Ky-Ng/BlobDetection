@@ -23,12 +23,13 @@ public class Pixel {
         this.y = 0;
     }
 
+    // Pixel was aliasing two different Pixel variables set to the same Pixel Object
     public Pixel copy(){
         return new Pixel(x,y,colorRGB);
     }
 
     @Override
     public String toString() {
-        return "(" + x + ", " + y + ")";
+        return "(" + x + ", " + y + ") " + "Color " + colorRGB;
     }
 }

@@ -26,17 +26,11 @@ public class Pipeline {
 
         // process image
         ArrayList<Blob> blobs = new ArrayList<>();
-            System.out.println("Rows: " + imgSource.rows() + " Cols: " + imgSource.cols());
-        int xDebug = 11, yDebug = 383;
-        System.out.println(
-                "X " + xDebug  + " Y " + yDebug
-                        + " BGR " + (int)imgSource.get(xDebug,yDebug)[0] + ", " + (int)imgSource.get(xDebug,yDebug)[1] + ", " + (int)imgSource.get(xDebug,yDebug)[2]
-            + " RGB " + (int)imgSource.get(xDebug,yDebug)[2] + ", " + (int)imgSource.get(xDebug,yDebug)[1] + ", " + (int)imgSource.get(xDebug,yDebug)[0]
-            );
-        for (int x = 0; x < imgSource.rows(); x +=30) {
-            for (int y = 0; y < imgSource.cols(); y+=30) {
-//                System.out.println("x: " + x + "| y: " + y);
-                Pixel pixel = new Pixel(x,y, imgSource.get(x,y));
+
+        for (int x = 0; x < imgSource.cols(); x +=30) {
+            for (int y = 0; y < imgSource.rows(); y+=30) {
+                System.out.println("x: " + x + "| y: " + y);
+                Pixel pixel = new Pixel(x,y, imgSource.get(y,x));
 
                 if (blobs.isEmpty()){
                     System.out.println("empty blob list" + x);
@@ -58,10 +52,12 @@ public class Pipeline {
                         }
                     }
                 }
+                Imgproc.rectangle(imgSource, new Point(x, y), new Point(x+3, y+3), new Scalar(150,30,150));
+                Drawer.drawBLobs(imgSource, blobs);
+                HighGui.imshow("Source Image", imgSource);
+                HighGui.waitKey(30);
             }
         }
-
-
 
         //display image
         Drawer.drawBLobs(imgSource, blobs);
