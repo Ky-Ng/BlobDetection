@@ -26,8 +26,8 @@ public class Pipeline {
         // process image
         ArrayList<Blob> blobs = new ArrayList<>();
 
-        for (int x = 0; x < imgSource.cols(); x +=30) {
-            for (int y = 0; y < imgSource.rows(); y+=30) {
+        for (int x = 0; x < imgSource.cols(); x += Parameters.Decimation) {
+            for (int y = 0; y < imgSource.rows(); y+= Parameters.Decimation) {
                 System.out.println("x: " + x + "| y: " + y);
                 Pixel pixel = new Pixel(x,y, imgSource.get(y,x));
 
