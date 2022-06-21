@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Drawer {
     static Scalar drawColor = new Scalar(0,0,255);
     static int count = 0;
-    public static void drawBLobs(Mat canvas, ArrayList<Blob> blobList){
+    public static void drawBlobs(Mat canvas, ArrayList<Blob> blobList){
         System.out.println("Blob List size " + blobList.size());
         for (Blob b : blobList){
             Imgproc.rectangle(canvas, b.getMinCorner(), b.getMaxCorner(), drawColor, 3);

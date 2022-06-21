@@ -69,7 +69,7 @@ public class DebugPipeline {
         Imgproc.rectangle(imgSource, new Point(debugX, debugY), new Point(debugX+10, debugY+10), new Scalar(5,245,237),10);
 
         //display image
-        Drawer.drawBLobs(imgSource, blobs);
+        Drawer.drawBlobs(imgSource, blobs);
         HighGui.imshow("Source Image", imgSource);
         HighGui.waitKey(0);
     }

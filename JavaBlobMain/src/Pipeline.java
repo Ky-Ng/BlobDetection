@@ -21,6 +21,9 @@ public class Pipeline {
 
         //create image
         Mat imgSource = Imgcodecs.imread(AssetsFolder + "blueFish.jpg");
+        Mat blobProcess = imgSource.clone();
+        Mat prePrune = imgSource.clone();
+        Mat postPrune = imgSource.clone();
 
         // process image
         ArrayList<Blob> blobs = new ArrayList<>();
@@ -50,19 +53,26 @@ public class Pipeline {
                         }
                     }
                 }
-                Imgproc.rectangle(imgSource, new Point(x, y), new Point(x+3, y+3), new Scalar(150,30,150));
-//                Drawer.drawBLobs(imgSource, blobs);
-                HighGui.imshow("Source Image", imgSource);
-                HighGui.waitKey(1);
+                Imgproc.rectangle(blobProcess, new Point(x, y), new Point(x+3, y+3), new Scalar(150,30,150));
+                Drawer.drawBlobs(blobProcess, blobs);
+
+
             }
         }
 
         //display image
+        Drawer.drawBlobs(prePrune, blobs);
+
         BlobsUtil.pruneBlobs(blobs);
-        Drawer.drawBLobs(imgSource, blobs);
+        Drawer.drawBlobs(postPrune, blobs);
+
         BlobsUtil.printDistance(blobs);
         BlobsUtil.printArea(blobs);
-        HighGui.imshow("Source Image", imgSource);
+
+        HighGui.imshow("1 Source", imgSource);
+        HighGui.imshow("2 Processing", blobProcess);
+        HighGui.imshow("3 Pre Prune", prePrune);
+        HighGui.imshow("4 Post Prune", postPrune);
         HighGui.waitKey(0);
     }
 }
