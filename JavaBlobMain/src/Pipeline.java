@@ -33,7 +33,7 @@ public class Pipeline {
                 Pixel pixel = new Pixel(x,y, imgSource.get(y,x));
 
                 if (blobs.isEmpty()){
-                    System.out.println("empty blob list" + x);
+                    System.out.println("empty blob list " + x);
                     if (Distance.getColorDistance(pixel.colorRGB, targetRGB) < Blob.colorThreshold){
                         blobs.add(new Blob(pixel));
                         System.out.println("First Blob Found");

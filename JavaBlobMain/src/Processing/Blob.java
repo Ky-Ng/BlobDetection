@@ -12,7 +12,7 @@ public class Blob {
     Scalar blobRGB;
 
     static int distanceThreshold = 290;
-    public static int colorThreshold = 100;
+    public static int colorThreshold = 200;
 
     public Blob (Pixel firstPixel){
         minCorner = firstPixel.copy();
