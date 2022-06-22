@@ -71,6 +71,9 @@ public class Pipeline {
         HighGui.imshow("2 Processing", blobProcess);
         HighGui.imshow("3 Pre Prune", prePrune);
         HighGui.imshow("4 Post Prune", postPrune);
+        for (Blob b : blobs){
+            System.out.println(b.getMinCorner() +""+ b.getMaxCorner());
+        }
         HighGui.waitKey(0);
     }
 }

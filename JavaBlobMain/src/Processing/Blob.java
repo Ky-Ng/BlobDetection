@@ -40,6 +40,15 @@ public class Blob {
         return BlobsUtil.getColorDistance(blobRGB, pixel.colorRGB) < Parameters.ColorThreshold;
     }
 
+    public void merge(Blob other){
+
+        minCorner.x = (int) Math.min(minCorner.x, other.getMinCorner().x);
+        minCorner.y = (int) Math.min(minCorner.y, other.getMaxCorner().y);
+
+        maxCorner.x = (int) Math.max(maxCorner.x, other.getMaxCorner().x);
+        maxCorner.y = (int) Math.max(maxCorner.y, other.getMaxCorner().y);
+    }
+
     public Point getMinCorner(){
         return new Point(minCorner.x, minCorner.y);
     }

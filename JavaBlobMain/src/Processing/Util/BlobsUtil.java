@@ -24,7 +24,7 @@ public class BlobsUtil {
 
     public static void printDistance(ArrayList<Blob> blobs){
         for (int i = 0; i < blobs.size(); i++) {
-            for (int j = 0; j < i; j++) {
+            for (int j = 1; j < i; j++) {
                 System.out.println("Distance between blobs " +
                         getDistance2D(blobs.get(i).getCenter(), blobs.get(j).getCenter())
                 + " | Color Distance " + getColorDistance(blobs.get(i).getCenter().colorRGB, blobs.get(j).getCenter().colorRGB));
@@ -47,5 +47,29 @@ public class BlobsUtil {
                 i--;
             }
         }
+
+        // Merge Blobs that are touching
+        for (int i = 0; i < blobs.size(); i++) {
+            for (int j = i+1; j < blobs.size(); j++) {
+                if(blobsIntersecting(blobs.get(i), blobs.get(j))){
+                    System.out.println("merged " + i + " with " + j);
+                    System.out.println("removing " + j);
+                    blobs.get(i).merge(blobs.get(j));
+                    blobs.remove(j);
+                    j--;
+                }
+            }
+        }
+    }
+
+    public static boolean blobsIntersecting(Blob b1, Blob b2){
+        return  isBetween(b1.getMinCorner().x, b1.getMaxCorner().x, b2.getMinCorner().x) ||
+                isBetween(b1.getMinCorner().x, b1.getMaxCorner().x, b2.getMaxCorner().x) ||
+                isBetween(b2.getMinCorner().y, b2.getMinCorner().y, b1.getMinCorner().y) ||
+                isBetween(b2.getMinCorner().y, b2.getMaxCorner().y, b1.getMaxCorner().y);
+    }
+
+    public static boolean isBetween(double start, double end, double target){
+        return target >= start && target <= end;
     }
 }
