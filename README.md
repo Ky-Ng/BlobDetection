@@ -14,12 +14,14 @@ The algorithm has three main steps:
 
 # Optimizations
 **Decimation Inspired Processing**
+
 In order to speed up the processing, the algorithm takes a _decimation_ parameter. Decimation is the Image Processing principle of removing every nth pixel in order to decrease the amount of times the program loops over an image which speeds up the processing.
 
 This algorithm borrows _decimation_'s principle in the sense that only every nth pixel is processed rather than removing the nth pixel. Ex: Decimation parameter = 30; only every 30th pixel in each row and column is processed.
 
 **Artifact Elimination**
 
+During Step 2, Merge/Prune Blobs	[Markdown - Link](#-How-The-Algorithm-Works)),
 
 UI Structure
 
