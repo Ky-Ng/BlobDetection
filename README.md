@@ -45,7 +45,7 @@ Found in /JavaBlobMain/src/Processing/Parameters:
 5. Run Pipeline
 6. Tweak  ColorThreshold, DistanceThreshold, and Decimation.
 
-**How to Tweak Parameters**
+# How to Tweak Parameters
 
 _ColorThreshold_: If the console returns "Empty Blob List" or _Blob Size_ at the end is smaller than you expect, increase the ColorThreshold so that the Blobs will include more shades of your TargetRGB. Based on the image processing windows provided, you can also decrease ColorThreshold if Blobs are forming around areas that are not desired since the algorithm is accepting too many shades of TargetRGB.
 
@@ -71,11 +71,19 @@ _Decimation_: If the image bounding box formed around the image is not covering 
 │               └── Pixel.java
 ```
 # Future Capabilities
-HSV Color Filters
+**HSV Color Filters**
 
-Contours for Multi-colored
+To improve the accepted shades of colors the Blobs will accept, converting the source image to HSV format will allow for greater robustness of the algorithm to detect the object of interest in different lighting conditions and allow for greater precision at the edge of blobs. (Real life objects/camera inputs are often darker at the sides because of natural lighting)
 
-Camera Homography
+**Contours for Multi-Colored Images**
+
+To detect multi-colored objects, the Blob constraint can also take the parameter of the shape of the objects in the image. This would require the use of a Canny or Classifier built into OpenCV. Currently, BlobDetection does not use any built-in OpenCV processing for the sake of learning and understanding how to do different Image Processing techniques from scratch.
+
+**Camera Homography**
+
+Homography is the Image Processing technique of translating the 2D bounding box image in the XY coordinate system of OpenCV (or any processing library) into 3D coordinates.
+
+With Bounding Boxes yielded at the final stage of processing, a fiducial marker can also be placed beside the desired image to tune XYZ distance parameters to find the actual distance of the target object in relation to the camera. This requires more tuning with physical parameters. However, if the use case only is searching for whether the object is in frame or is in a certain part of the frame, Homography is not needed.
 
 # Gallery
 Below are the three steps with various cases:
