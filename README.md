@@ -21,9 +21,12 @@ This algorithm borrows _decimation_'s principle in the sense that only every nth
 
 **Artifact Elimination**
 
-During Step 2, Merge/Prune Blobs	[test](#How-The-Algorithm-Works)
+During [Step 2, Merge/Prune Blobs](#How-The-Algorithm-Works), the algorithm goes through an ArrayList of Blobs and removes any Blob with area less than 5. These _Artifact Blobs_ sometimes form when a pixel is close to a specific but not close enough to the center distance of any of the neighboring Blobs. 
 
-UI Structure
+Future improvements can also merge the pixel if the pixel is within an existing blob; however, this may make the algorithm less robust because it may create _false blobs_.
+
+# Using the Project
+
 
 # Future Capabilities
 HSV Color Filters
