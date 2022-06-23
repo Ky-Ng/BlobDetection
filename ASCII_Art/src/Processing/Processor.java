@@ -5,6 +5,7 @@ import org.opencv.imgproc.Imgproc;
 
 public class Processor {
     Mat gray;
+    String ASCII = "";
     public static final int POSITIVE_IMAGE = 0;
     public static final int NEGATIVE_IMAGE = 1;
 
@@ -18,7 +19,7 @@ public class Processor {
         return gray;
     }
 
-    public String getImageInASCII(){
+    public void convertImageToASCII(){
         String ret = "";
 
         if (Parameters.Mode == NEGATIVE_IMAGE){
@@ -28,7 +29,7 @@ public class Processor {
                 }
                 ret += "\n";
             }
-        }else {
+        } else {
             for (int i = 0; i < gray.rows(); i+=Parameters.Decimation){
                 for (int j = 0; j < gray.cols(); j+=Parameters.Decimation){
                     ret += positiveColorToASCII(gray.get(i, j)[0]);
@@ -36,8 +37,7 @@ public class Processor {
                 ret += "\n";
             }
         }
-
-        return ret;
+        this.ASCII = ret;
     }
 
     public String positiveColorToASCII(double grayShade){
