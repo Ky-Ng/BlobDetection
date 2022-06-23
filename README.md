@@ -28,6 +28,7 @@ Future improvements can also merge the pixel if the pixel is within an existing 
 # Using the Project
 
 **Project File Tree**
+```
 ├── JavaBlobMain
 │   └── src
 │       ├── FindColorUI.java
@@ -39,7 +40,7 @@ Future improvements can also merge the pixel if the pixel is within an existing 
 │               ├── BlobsUtil.java
 │               ├── Drawer.java
 │               └── Pixel.java
-
+```
 # Future Capabilities
 HSV Color Filters
 
