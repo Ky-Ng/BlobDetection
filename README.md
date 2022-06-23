@@ -26,10 +26,38 @@ During [Step 2, Merge/Prune Blobs](#How-The-Algorithm-Works), the algorithm goes
 Future improvements can also merge the pixel if the pixel is within an existing blob; however, this may make the algorithm less robust because it may create _false blobs_.
 
 # Using the Project
+To use BlobDetection on a desired image, the desired parameters: ImageName, TargetRGB, Distance and Color Threshold, and Decimation
+
+Found in /JavaBlobMain/src/Processing/Parameters:
+```
+    public static String AssetsFolder = "/Users/kyleng/IdeaProjects/BlobDetection/JavaBlobMain/src/Assets/";
+    public static String ImageName = "blueFish.jpg";
+    public static Scalar TargetRGB = new Scalar(43, 143, 253);
+    public static int DistanceThreshold = 290;
+    public static int ColorThreshold = 150;
+    public static int Decimation = 30;
+```
+
+1. Replace the absolute path to the Assets folder.
+2. Replace ImageName with the name of your desired image.
+3. Run FindColorUI and enter the XY coordinates of the color on the image you wish to detect. The algorithm will create blobs similar to this color.
+4. Replace TargetRGB with the RGB value returned in the console in Step 3.
+5. Run Pipeline
+6. Tweak  ColorThreshold, DistanceThreshold, and Decimation.
+
+**How to Tweak Parameters**
+_ColorThreshold_: If the console returns "Empty Blob List" or _Blob Size_ at the end is smaller than you expect, increase the ColorThreshold so that the Blobs will include more shades of your TargetRGB. Based on the image processing windows provided, you can also decrease ColorThreshold if Blobs are forming around areas that are not desired since the algorithm is accepting too many shades of TargetRGB.
+
+_Distance Threshold_: If the output says "Added New Blob" as the _Blob Size_ returned approaches infinity, increase Distance Threshold.
+(What is happening is that blobs close to each other are not merging causing the program to create too many very small blobs)
+
+
 
 **Project File Tree**
 ```
 ├── JavaBlobMain
+│   └── Assets
+│       ├── blueFish.jpg
 │   └── src
 │       ├── FindColorUI.java
 │       ├── Pipeline.java
