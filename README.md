@@ -70,6 +70,11 @@ _Decimation_: If the image bounding box formed around the image is not covering 
 │               ├── Drawer.java
 │               └── Pixel.java
 ```
+
+# Installing OpenCV on Mac for Java
+Due to scarce documentation on JavaOpenCV here is a compilation of the steps Google Document to add the OpenCV dependency in Macs. Feel free to use it fellow Mac users and add on to it!
+https://docs.google.com/document/d/185IR6hGh4MmqK4L1iKhF5Kx9na9wTka-MR_QAmxNoXg/edit
+
 # Future Capabilities
 **HSV Color Filters**
 
@@ -88,12 +93,13 @@ With Bounding Boxes yielded at the final stage of processing, a fiducial marker 
 # Gallery
 Below are the three steps with various cases:
 
+![1 Source Blue Fish ](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/SimpleFish/1%20Source.png)
+![2 Processing Blue Fish ](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/SimpleFish/2%20Processing.png)
+![3 Pre Prune Blue Fish](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/SimpleFish/3%20Pre%20Prune.png)
+![4 Post Prune Blue Fish](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/SimpleFish/4%20Post%20Prune.png)
+
 ![1 Source Mountain ](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/Mountain/1%20Source.png)
 ![2 Processing Mountain ](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/Mountain/2%20Processing.png)
 ![3 Pre Prune Mountain](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/Mountain/3%20Pre%20Prune.png)
 ![4 Post Prune Mountain](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/Mountain/4%20Post%20Prune.png)
-
-# Installing OpenCV on Mac for Java
-Due to scarce documentation on JavaOpenCV here is a compilation of the steps Google Document to add the OpenCV dependency in Macs.
-https://docs.google.com/document/d/185IR6hGh4MmqK4L1iKhF5Kx9na9wTka-MR_QAmxNoXg/edit
 
