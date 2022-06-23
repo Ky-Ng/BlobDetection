@@ -45,7 +45,7 @@ Found in /JavaBlobMain/src/Processing/Parameters:
 3. Run FindColorUI and enter the XY coordinates of the color on the image you wish to detect. The algorithm will create blobs similar to this color.
 4. Replace TargetRGB with the RGB value returned in the console in Step 3.
 5. Run Pipeline
-6. Tweak  ColorThreshold, DistanceThreshold, and Decimation.
+6. Tweak Parameters ColorThreshold, DistanceThreshold, and Decimation.
 
 # How to Tweak Parameters
 
@@ -99,6 +99,17 @@ Below are the three steps with various cases:
 ![2 Processing Blue Fish ](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/SimpleFish/2%20Processing.png)
 ![3 Pre Prune Blue Fish](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/SimpleFish/3%20Pre%20Prune.png)
 ![4 Post Prune Blue Fish](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/SimpleFish/4%20Post%20Prune.png)
+
+
+![1 Source GoldFish ](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/GoldFish/1%20Source.png)
+![2 Processing GoldFish ](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/GoldFish/2%20Processing.png)
+![3 Pre Prune GoldFish](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/GoldFish/3%20Pre%20Prune.png)
+![4 Post Prune GoldFish](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/GoldFish/4%20Post%20Prune.png)
+
+![1 Source BetaFish ](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/BetaFish/1%20Source.png)
+![2 Processing BetaFish ](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/BetaFish/2%20Processing.png)
+![3 Pre Prune BetaFish](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/BetaFish/3%20Pre%20Prune.png)
+![4 Post Prune BetaFish](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/BetaFish/4%20Post%20Prune.png)
 
 ![1 Source Mountain ](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/Mountain/1%20Source.png)
 ![2 Processing Mountain ](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/Mountain/2%20Processing.png)
