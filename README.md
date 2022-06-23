@@ -21,7 +21,7 @@ This algorithm borrows _decimation_'s principle in the sense that only every nth
 
 **Artifact Elimination**
 
-During Step 2, Merge/Prune Blobs	[Markdown - Link](#-How-The-Algorithm-Works)),
+During Step 2, Merge/Prune Blobs	[test](#How-The-Algorithm-Works)
 
 UI Structure
 
