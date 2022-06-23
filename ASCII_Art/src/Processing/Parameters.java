@@ -6,21 +6,21 @@ public class Parameters {
 
     //Grad picture
 //    public static String Image = "Grad.JPG";
-//    public static int Decimation = 3;
+//    public static int Decimation = 1;
 //    public static double Scale = 0.25;
 
     //Black and White picture
 //    public static String Image = "GrayCat.jpg";
-//    public static int Decimation = 3;
+//    public static int Decimation = 1;
 //    public static double Scale = 0.25;
 
     //Black and White picture
 //    public static String Image = "logo.png";
-//    public static int Decimation = 3;
+//    public static int Decimation = 1;
 //    public static double Scale = 0.25;
 
     //Black and White picture
     public static String Image = "CVGoogleDoc.png";
-    public static int Decimation = 3;
+    public static int Decimation = 2;
     public static double Scale = 0.2;
 }

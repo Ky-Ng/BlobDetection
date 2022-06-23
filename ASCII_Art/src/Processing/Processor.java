@@ -21,8 +21,8 @@ public class Processor {
 
     public String convertToASCII(){
         String ret = "";
-        for (int i = 0; i < gray.rows(); i++){
-            for (int j = 0; j < gray.cols(); j++){
+        for (int i = 0; i < gray.rows(); i+=Parameters.Decimation){
+            for (int j = 0; j < gray.cols(); j+=Parameters.Decimation){
                 ret += reverseMapColorToASCII(gray.get(i, j)[0]); // see OpenCVDocumentation.md
 //                System.out.print(ret);
             }
