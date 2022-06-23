@@ -1,14 +1,13 @@
 package Processing;
 
 import org.opencv.core.Mat;
-import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
-
-import java.awt.font.NumericShaper;
-import java.lang.reflect.Parameter;
 
 public class Processor {
     Mat gray;
+    public static final int POSITIVE_IMAGE = 0;
+    public static final int NEGATIVE_IMAGE = 1;
+
     public Processor(Mat BGR){
         this.gray = BGR.clone();
         Imgproc.cvtColor(BGR, gray, Imgproc.COLOR_BGR2GRAY);
@@ -19,18 +18,29 @@ public class Processor {
         return gray;
     }
 
-    public String convertToASCII(){
+    public String getImageInASCII(){
         String ret = "";
-        for (int i = 0; i < gray.rows(); i+=Parameters.Decimation){
-            for (int j = 0; j < gray.cols(); j+=Parameters.Decimation){
-                ret += reverseMapColorToASCII(gray.get(i, j)[0]);
+
+        if (Parameters.Mode == NEGATIVE_IMAGE){
+            for (int i = 0; i < gray.rows(); i+=Parameters.Decimation){
+                for (int j = 0; j < gray.cols(); j+=Parameters.Decimation){
+                    ret += negativeColorToASCII(gray.get(i, j)[0]);
+                }
+                ret += "\n";
             }
-            ret += "\n";
+        }else {
+            for (int i = 0; i < gray.rows(); i+=Parameters.Decimation){
+                for (int j = 0; j < gray.cols(); j+=Parameters.Decimation){
+                    ret += positiveColorToASCII(gray.get(i, j)[0]);
+                }
+                ret += "\n";
+            }
         }
+
         return ret;
     }
 
-    public String mapColorToASCII(double grayShade){
+    public String positiveColorToASCII(double grayShade){
         double darkness = grayShade / 255.0;
         int charIndex = (int) (Parameters.ASCII_ColorScale.length() * darkness);
 
@@ -40,7 +50,7 @@ public class Processor {
         return Parameters.ASCII_ColorScale.substring(charIndex, charIndex+1);
     }
 
-    public String reverseMapColorToASCII(double grayShade){
+    public String negativeColorToASCII(double grayShade){
         double darkness = grayShade / 255.0;
         int charIndex = (int) (Parameters.ASCII_ColorScale.length() * darkness);
 

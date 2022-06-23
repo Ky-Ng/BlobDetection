@@ -23,4 +23,5 @@ public class Parameters {
     public static String Image = "CVGoogleDoc.png";
     public static int Decimation = 2;
     public static double Scale = 0.2;
+    public static int Mode = Processor.NEGATIVE_IMAGE;
 }

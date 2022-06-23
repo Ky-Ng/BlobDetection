@@ -8,10 +8,9 @@ public class Run {
         System.out.println("Init OpenCV " + Core.VERSION);
 
         Renderer renderer = new Renderer();
-        System.out.println(renderer.getProcessor().convertToASCII());
-        renderer.display();
+        renderer.displayToConsole();
+        renderer.displayToWindow();
 
-        System.out.println(renderer.getProcessor().mapColorToASCII(127));
 
     }
 }

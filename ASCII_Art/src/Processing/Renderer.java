@@ -20,11 +20,17 @@ public class Renderer {
         this.processor = new Processor(resize);
     }
 
-    public void display(){
+    public void displayToWindow(){
 //        HighGui.imshow("ASCII Art", imgSource);
         HighGui.imshow("Gray", processor.getGrayMat());
         HighGui.imshow("Rescaled Art", resize);
         HighGui.waitKey(0);
+    }
+
+    public void displayToConsole(){
+        System.out.println(
+                processor.getImageInASCII()
+        );
     }
 
     Size scaleSize(Mat input){
