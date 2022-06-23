@@ -6,8 +6,6 @@ import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
-import java.lang.reflect.Parameter;
-
 public class Renderer {
     Mat imgSource;
     Mat resize;
@@ -21,14 +19,14 @@ public class Renderer {
     }
 
     public void display(){
-        Imgproc.resize(imgSource, resize, scale(imgSource.size()));
+        Imgproc.resize(imgSource, resize, scaleSize(imgSource));
         System.out.println("Resize Size " + resize.size());
 //        HighGui.imshow("ASCII Art", imgSource);
         HighGui.imshow("Rescaled Art", resize);
         HighGui.waitKey(0);
     }
 
-    Size scale(Size inputSize){
-        return new Size(inputSize.width * scale, inputSize.height * scale);
+    Size scaleSize(Mat input){
+        return new Size(input.size().width * scale, input.size().height * scale);
     }
 }
