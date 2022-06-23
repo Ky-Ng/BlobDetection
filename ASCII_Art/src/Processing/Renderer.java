@@ -6,33 +6,32 @@ import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
+
 public class Renderer {
     Mat imgSource;
     Mat resize;
-    double scale;
-    Processer processer;
+    Processor processor;
 
-    public Renderer(String AssetsFolder, String ImagePath, double scale, String ASCII_ColorScale){
-        this.imgSource = Imgcodecs.imread(AssetsFolder+ImagePath);
+    public Renderer(){
+        this.imgSource = Imgcodecs.imread(Parameters.AssetsFolder+Parameters.Image);
         this.resize = imgSource.clone();
-        this.scale = scale;
 
         Imgproc.resize(imgSource, resize, scaleSize(imgSource));
-        this.processer = new Processer(resize, ASCII_ColorScale);
+        this.processor = new Processor(resize);
     }
 
     public void display(){
 //        HighGui.imshow("ASCII Art", imgSource);
-        HighGui.imshow("Gray", processer.getGrayMat());
+        HighGui.imshow("Gray", processor.getGrayMat());
         HighGui.imshow("Rescaled Art", resize);
         HighGui.waitKey(0);
     }
 
     Size scaleSize(Mat input){
-        return new Size(input.size().width * scale, input.size().height * scale);
+        return new Size(input.size().width * Parameters.Scale, input.size().height * Parameters.Scale);
     }
 
-    public Processer getProcesser() {
-        return processer;
+    public Processor getProcessor() {
+        return processor;
     }
 }

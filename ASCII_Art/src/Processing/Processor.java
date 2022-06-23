@@ -7,11 +7,9 @@ import org.opencv.imgproc.Imgproc;
 import java.awt.font.NumericShaper;
 import java.lang.reflect.Parameter;
 
-public class Processer {
+public class Processor {
     Mat gray;
-    String ASCII_ColorScale;
-    public Processer(Mat BGR, String ASCII_ColorScale){
-        this.ASCII_ColorScale = ASCII_ColorScale;
+    public Processor(Mat BGR){
         this.gray = BGR.clone();
         Imgproc.cvtColor(BGR, gray, Imgproc.COLOR_BGR2GRAY);
         System.out.println("Initialized Processor");
@@ -35,19 +33,19 @@ public class Processer {
 
     public String mapColorToASCII(double grayShade){
         double darkness = grayShade / 255.0;
-        int charIndex = (int) (ASCII_ColorScale.length() * darkness);
+        int charIndex = (int) (Parameters.ASCII_ColorScale.length() * darkness);
         // if the charIndex is the very last (gray = 255 and darkness = 1.0) substring will return "" not " "
-        charIndex = charIndex >= ASCII_ColorScale.length() ? ASCII_ColorScale.length() - 1 : charIndex;
-        return ASCII_ColorScale.substring(charIndex, charIndex+1);
+        charIndex = charIndex >= Parameters.ASCII_ColorScale.length() ? Parameters.ASCII_ColorScale.length() - 1 : charIndex;
+        return Parameters.ASCII_ColorScale.substring(charIndex, charIndex+1);
     }
     public String reverseMapColorToASCII(double grayShade){
         double darkness = grayShade / 255.0;
-        int charIndex = (int) (ASCII_ColorScale.length() * darkness);
-        // if the charIndex is the very last (gray = 255 and darkness = 1.0) substring will return "" not " "
+        int charIndex = (int) (Parameters.ASCII_ColorScale.length() * darkness);
+        // if the charIndex is the very first (black = 0 and darkness = 0), black needs to be " " substring will return "" not " "
         charIndex = charIndex <= 0 ? 1 : charIndex;
-        return ASCII_ColorScale.substring(
-                ASCII_ColorScale.length() - charIndex,
-                ASCII_ColorScale.length() - charIndex + 1
+        return Parameters.ASCII_ColorScale.substring(
+                Parameters.ASCII_ColorScale.length() - charIndex,
+                Parameters.ASCII_ColorScale.length() - charIndex + 1
         );
     }
 }

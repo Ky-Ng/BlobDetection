@@ -28,7 +28,7 @@ Future improvements can also merge the pixel if the pixel is within an existing 
 # Using the Project
 To use BlobDetection on a desired image, the desired parameters: ImageName, TargetRGB, Distance and Color Threshold, and Decimation
 
-Found in /JavaBlobMain/src/Processing/Parameters:
+Found in /JavaBlobMain/src/Processing/Processing.Parameters:
 ```
     public static String AssetsFolder = "/Users/kyleng/IdeaProjects/BlobDetection/JavaBlobMain/src/Assets/";
     public static String ImageName = "blueFish.jpg";
@@ -45,7 +45,7 @@ Found in /JavaBlobMain/src/Processing/Parameters:
 5. Run Pipeline
 6. Tweak  ColorThreshold, DistanceThreshold, and Decimation.
 
-# How to Tweak Parameters
+# How to Tweak Processing.Parameters
 
 _ColorThreshold_: If the console returns "Empty Blob List" or _Blob Size_ at the end is smaller than you expect, increase the ColorThreshold so that the Blobs will include more shades of your TargetRGB. Based on the image processing windows provided, you can also decrease ColorThreshold if Blobs are forming around areas that are not desired since the algorithm is accepting too many shades of TargetRGB.
 
@@ -64,7 +64,7 @@ _Decimation_: If the image bounding box formed around the image is not covering 
 │       ├── Pipeline.java
 │       └── Processing
 │           ├── Blob.java
-│           ├── Parameters.java
+│           ├── Processing.Parameters.java
 │           └── Util
 │               ├── BlobsUtil.java
 │               ├── Drawer.java
