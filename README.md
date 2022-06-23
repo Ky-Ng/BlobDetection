@@ -1,5 +1,5 @@
 # BlobDetection
-This repository holds a Custom Blob Detection Algorithm using OpenCV written in Java. This algorithm only uses OpenCV for image display and pixel color reading from images; Inspired by the JavaScript PS5 tutorial by the [Coding Train]([url](https://www.youtube.com/watch?v=ce-2l2wRqO8)).
+BlobDetection is a custom Computer Vision Algorithm based on Blob Detection using OpenCV written in Java. This algorithm only uses OpenCV for image display and pixel color reading from images; Inspired by the JavaScript PS5 tutorial by the [Coding Train]([url](https://www.youtube.com/watch?v=ce-2l2wRqO8)).
 
 # How the Algorithm Works
 **What Are Blobs?**
@@ -7,14 +7,19 @@ A Blob is a group of pixels that meet are similar in characteristics such as: Co
 
 **Blob Detection Logic**
 The algorithm has three main steps:
-1. Identify pixels that are similar in color.
-2. Merge similar colored pixels that are close together to form a Blob.
-3. Merge neighboring Blobs to create bounding boxes.
+1. **Find Blobs**: Identify pixels that are similar in color.
+2. **Merge/Prune Blobs**: Merge similar colored pixels that are close together to form a Blob.
+3. **Bounding Boxes**: Merge neighboring Blobs to create bounding boxes.
 
 
-Optimizations
-- Decimation
-- Artifact Elimination
+# Optimizations
+**Decimation Inspired Processing**
+In order to speed up the processing, the algorithm takes a _decimation_ parameter. Decimation is the Image Processing principle of removing every nth pixel in order to decrease the amount of times the program loops over an image which speeds up the processing.
+
+This algorithm borrows _decimation_'s principle in the sense that only every nth pixel is processed rather than removing the nth pixel. Ex: Decimation parameter = 30; only every 30th pixel in each row and column is processed.
+
+**Artifact Elimination**
+
 
 UI Structure
 
@@ -25,7 +30,7 @@ Contours for Multi-colored
 
 Camera Homography
 
-#**Examples**
+# Gallery
 Below are the three steps with various cases:
 ![1 Source Mountain ](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/Mountain/1%20Source.png)
 ![2 Processing Mountain ](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/Mountain/2%20Processing.png)
