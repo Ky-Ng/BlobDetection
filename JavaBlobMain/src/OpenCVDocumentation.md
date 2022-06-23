@@ -8,7 +8,7 @@ OpenCV Coordinate System
 View in nonpreview mode
 Points (OpenCV Default) uses the below graph which is correct
 
-However, the mat.Get(x,y) returns a double[] uses (y,x) or (row,col)
+However, the mat.Get(a,b) returns a double[] uses (y,x) or (row,col)
 O-----------> cols (x) +
 |
 |

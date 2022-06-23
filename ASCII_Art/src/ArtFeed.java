@@ -9,7 +9,7 @@ public class ArtFeed {
         System.out.println("Init OpenCV " + Core.VERSION);
 
         Renderer renderer = new Renderer(Parameters.AssetsFolder, Parameters.Image, Parameters.Scale, Parameters.ASCII_ColorScale);
-        renderer.getProcesser().convertToASCII();
+        System.out.println(renderer.getProcesser().convertToASCII());
         renderer.display();
 
         System.out.println(renderer.getProcesser().mapColorToASCII(127));

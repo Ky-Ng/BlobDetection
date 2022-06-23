@@ -25,12 +25,11 @@ public class Processer {
         String ret = "";
         for (int i = 0; i < gray.rows(); i++){
             for (int j = 0; j < gray.cols(); j++){
-                ret += mapColorToASCII(gray.get(i, j)[0]); // see OpenCVDocumentation.md
+                ret += reverseMapColorToASCII(gray.get(i, j)[0]); // see OpenCVDocumentation.md
 //                System.out.print(ret);
             }
             ret += "\n";
         }
-        System.out.print(ret);
         return ret;
     }
 
@@ -40,5 +39,15 @@ public class Processer {
         // if the charIndex is the very last (gray = 255 and darkness = 1.0) substring will return "" not " "
         charIndex = charIndex >= ASCII_ColorScale.length() ? ASCII_ColorScale.length() - 1 : charIndex;
         return ASCII_ColorScale.substring(charIndex, charIndex+1);
+    }
+    public String reverseMapColorToASCII(double grayShade){
+        double darkness = grayShade / 255.0;
+        int charIndex = (int) (ASCII_ColorScale.length() * darkness);
+        // if the charIndex is the very last (gray = 255 and darkness = 1.0) substring will return "" not " "
+        charIndex = charIndex <= 0 ? 1 : charIndex;
+        return ASCII_ColorScale.substring(
+                ASCII_ColorScale.length() - charIndex,
+                ASCII_ColorScale.length() - charIndex + 1
+        );
     }
 }
