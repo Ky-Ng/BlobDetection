@@ -12,26 +12,27 @@ public class Renderer {
     double scale;
     Processer processer;
 
-    public Renderer(String AssetsFolder, String ImagePath, double scale){
-        imgSource = Imgcodecs.imread(AssetsFolder+ImagePath);
-        resize = imgSource.clone();
-//        System.out.println("Img Source Size " + imgSource.size());
+    public Renderer(String AssetsFolder, String ImagePath, double scale, String ASCII_ColorScale){
+        this.imgSource = Imgcodecs.imread(AssetsFolder+ImagePath);
+        this.resize = imgSource.clone();
         this.scale = scale;
-        Imgproc.resize(imgSource, resize, scaleSize(imgSource));
-        this.processer = new Processer(resize);
 
+        Imgproc.resize(imgSource, resize, scaleSize(imgSource));
+        this.processer = new Processer(resize, ASCII_ColorScale);
     }
 
     public void display(){
-        System.out.println("Resize Size " + resize.size());
 //        HighGui.imshow("ASCII Art", imgSource);
-
-        HighGui.imshow("Gray", processer.getGray());
+        HighGui.imshow("Gray", processer.getGrayMat());
         HighGui.imshow("Rescaled Art", resize);
         HighGui.waitKey(0);
     }
 
     Size scaleSize(Mat input){
         return new Size(input.size().width * scale, input.size().height * scale);
+    }
+
+    public Processer getProcesser() {
+        return processer;
     }
 }
