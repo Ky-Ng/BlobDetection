@@ -20,17 +20,17 @@ public class Parameters {
 //    public static int ColorThreshold = 100;
 
     // RGB Mountain
-    public static String ImageName = "rgb_image.jpg";
-    public static Scalar TargetRGB = new Scalar(160, 180, 189);
-    public static int DistanceThreshold = 200;
-    public static int ColorThreshold = 10;
-    public static int Decimation = 15;
+//    public static String ImageName = "rgb_image.jpg";
+//    public static Scalar TargetRGB = new Scalar(160, 180, 189);
+//    public static int DistanceThreshold = 200;
+//    public static int ColorThreshold = 10;
+//    public static int Decimation = 15;
 
     // Beta Fish
-//    public static String ImageName = "BetaFish.jpg";
-//    public static Scalar TargetRGB = new Scalar(23, 87, 226);
-//    public static int DistanceThreshold = 400;
-//    public static int ColorThreshold = 150;
-//    public static int Decimation = 30;
+    public static String ImageName = "BetaFish.jpg";
+    public static Scalar TargetRGB = new Scalar(23, 87, 226);
+    public static int DistanceThreshold = 400;
+    public static int ColorThreshold = 150;
+    public static int Decimation = 30;
 
 }
