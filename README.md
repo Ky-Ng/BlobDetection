@@ -46,12 +46,13 @@ Found in /JavaBlobMain/src/Processing/Parameters:
 6. Tweak  ColorThreshold, DistanceThreshold, and Decimation.
 
 **How to Tweak Parameters**
+
 _ColorThreshold_: If the console returns "Empty Blob List" or _Blob Size_ at the end is smaller than you expect, increase the ColorThreshold so that the Blobs will include more shades of your TargetRGB. Based on the image processing windows provided, you can also decrease ColorThreshold if Blobs are forming around areas that are not desired since the algorithm is accepting too many shades of TargetRGB.
 
 _Distance Threshold_: If the output says "Added New Blob" as the _Blob Size_ returned approaches infinity, increase Distance Threshold.
 (What is happening is that blobs close to each other are not merging causing the program to create too many very small blobs)
 
-
+_Decimation_: If the image bounding box formed around the image is not covering the whole image, this is likely because the Decimation is too high (skipping over too many pixels). Simply decrease Decimation; this will increase processing time (should be negligible for small images) and you will get more precise Blobs. If the algorithm is taking too long for large images (and DistanceThreshold and ColorThreshold are tuned correctly), increase decimation since you can skip over Pixels without degrading precision by too much.
 
 **Project File Tree**
 ```
