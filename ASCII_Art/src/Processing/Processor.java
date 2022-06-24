@@ -62,4 +62,8 @@ public class Processor {
                 Parameters.ASCII_ColorScale.length() - charIndex + 1
         );
     }
+
+    public String getASCII() {
+        return ASCII;
+    }
 }

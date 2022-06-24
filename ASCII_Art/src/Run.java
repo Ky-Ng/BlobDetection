@@ -8,7 +8,7 @@ public class Run {
         System.out.println("Init OpenCV " + Core.VERSION);
 
         Renderer renderer = new Renderer();
-        renderer.displayToConsole();
+//        renderer.displayToConsole();
         renderer.displayToWindow();
 
 
