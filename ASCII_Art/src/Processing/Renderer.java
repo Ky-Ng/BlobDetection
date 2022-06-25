@@ -49,7 +49,10 @@ public class Renderer {
         System.out.println(ASCII_by_row.length);
         for (String toDisplay : ASCII_by_row){
 //            System.out.println(str);
-            Imgproc.putText(ASCII_art, toDisplay, new Point(10, 10 + row * 10), Imgproc.FONT_HERSHEY_PLAIN, 0.5, new Scalar(0, 0, 0));
+            for (int col = 0; col < toDisplay.length(); col++) {
+                Imgproc.putText(ASCII_art, toDisplay.substring(col, col+1), new Point(10 + col * 6, 10 + row * 10), Imgproc.FONT_HERSHEY_PLAIN, 0.5, new Scalar(0, 0, 0));
+            }
+//            Imgproc.putText(ASCII_art, toDisplay, new Point(10, 10 + row * 10), Imgproc.FONT_HERSHEY_PLAIN, 0.5, new Scalar(0, 0, 0));
             row++;
         }
         System.out.println("Done");

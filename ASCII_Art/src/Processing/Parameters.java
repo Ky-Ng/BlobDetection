@@ -22,14 +22,14 @@ public class Parameters {
 //        public static int Mode = Processor.NEGATIVE_IMAGE;
 
     //Black and White picture
-    public static String Image = "CVGoogleDoc.png";
-    public static int Decimation = 2;
-    public static double Scale = 0.2;
-    public static int Mode = Processor.NEGATIVE_IMAGE;
+//    public static String Image = "CVGoogleDoc.png";
+//    public static int Decimation = 2;
+//    public static double Scale = 0.2;
+//    public static int Mode = Processor.NEGATIVE_IMAGE;
 
     // 小幸运
-//    public static String Image = "Movie.png";
-//    public static int Decimation = 1;
-//    public static double Scale = 0.25;
-//    public static int Mode = Processor.NEGATIVE_IMAGE;
+    public static String Image = "Movie.png";
+    public static int Decimation = 1;
+    public static double Scale = 0.25;
+    public static int Mode = Processor.NEGATIVE_IMAGE;
 }
