@@ -28,52 +28,18 @@ public class Renderer {
 
     // in a 950x540 canvas, you can fit 180 "$" cols and 50 rows spaced 10 pixels apart
     public void displayToWindow(){
-        // TODO: 6/23/22 divide the canvas into separate parts
-//        String toDisplay = "";
-//        for (int i = 0; i <  50; i ++){
-//            if (i + 180 + (180*i) < processor.ASCII.length()) {
-//                toDisplay = processor.ASCII.substring(i + (180 * i), i + 180 + (180 * i));
-//                Imgproc.putText(ASCII_art, toDisplay, new Point(10, 10 + i * 10), Imgproc.FONT_HERSHEY_PLAIN, 0.5, new Scalar(0, 0, 0));
-////            for (int j = 0; j<50; j++){
-////
-////            }
-//            }
-//          }
         processor.convertImageToASCII();
-//        String toDisplay = "";
+
         String ASCII_copy = processor.getASCII();
-        int start = 0, breakLineCharIndex;
-        int row = 0;
-        System.out.println(ASCII_copy);
         String[] ASCII_by_row = ASCII_copy.split("\n");
-        System.out.println(ASCII_by_row.length);
+        int row = 0;
+
         for (String toDisplay : ASCII_by_row){
-//            System.out.println(str);
             for (int col = 0; col < toDisplay.length(); col++) {
                 Imgproc.putText(ASCII_art, toDisplay.substring(col, col+1), new Point(10 + col * 6, 10 + row * 10), Imgproc.FONT_HERSHEY_PLAIN, 0.5, new Scalar(0, 0, 0));
             }
-//            Imgproc.putText(ASCII_art, toDisplay, new Point(10, 10 + row * 10), Imgproc.FONT_HERSHEY_PLAIN, 0.5, new Scalar(0, 0, 0));
             row++;
         }
-        System.out.println("Done");
-
-//        while (ASCII_copy.contains("\n")){
-//            System.out.println("ASCII copy" + ASCII_copy);
-//            breakLineCharIndex = ASCII_copy.indexOf("\n");
-//            System.out.println("Break Line Char Index " + breakLineCharIndex);
-//            toDisplay = ASCII_copy.substring(start, breakLineCharIndex);
-//
-//            System.out.println("Start " + start + " Break Line Char Index " + breakLineCharIndex + " row " + row + " | to Display " + toDisplay);
-//
-//            Imgproc.putText(ASCII_art, toDisplay, new Point(10, 10 + row * 10), Imgproc.FONT_HERSHEY_PLAIN, 0.5, new Scalar(0, 0, 0));
-//
-//
-//
-//            ASCII_copy = processor.getASCII().substring(breakLineCharIndex);
-//            start = breakLineCharIndex;
-//            row++;
-//        }
-
 
         HighGui.imshow("ASCII Art ", ASCII_art);
         HighGui.imshow("Gray", processor.getGrayMat());
