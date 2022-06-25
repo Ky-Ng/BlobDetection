@@ -18,9 +18,14 @@ public class Renderer {
     public Renderer(){
         this.imgSource = Imgcodecs.imread(Parameters.AssetsFolder+Parameters.Image);
         this.resize = imgSource.clone();
-        this.ASCII_art = imgSource.clone();
+        this.ASCII_art = Imgcodecs.imread("/Users/kyleng/IdeaProjects/BlobDetection/ASCII_Art/src/Assets/HugeImage.png");
+//        Imgproc.resize(ASCII_art, ASCII_art, scaleSize(imgSource.clone(), 3));
+//        Imgproc.resize(ASCII_art, ASCII_art, new Size(0,0), 2,2);
+//        ASCII_art.push_back(imgSource);
+
 
         Imgproc.rectangle(ASCII_art, new Point(0,0), new Point(ASCII_art.width(), ASCII_art.height()), new Scalar(255,255,255),-1);
+//        Imgproc.rectangle(ASCII_art, new Point(0,0), new Point(1,1), new Scalar(0,0, 0), 10);
 
         Imgproc.resize(imgSource, resize, scaleSize(imgSource));
         this.processor = new Processor(resize);
@@ -35,8 +40,11 @@ public class Renderer {
         int row = 0;
 
         for (String toDisplay : ASCII_by_row){
+//            for (int col = 0; col < toDisplay.length(); col++) {
+//                Imgproc.putText(ASCII_art, toDisplay.substring(col, col+1), new Point(10 + col * 8, 10 + row * 10), Imgproc.FONT_HERSHEY_PLAIN, 0.5, new Scalar(0, 0, 0));
+//            }
             for (int col = 0; col < toDisplay.length(); col++) {
-                Imgproc.putText(ASCII_art, toDisplay.substring(col, col+1), new Point(10 + col * 6, 10 + row * 10), Imgproc.FONT_HERSHEY_PLAIN, 0.5, new Scalar(0, 0, 0));
+                Imgproc.putText(ASCII_art, toDisplay.substring(col, col+1), new Point(100 + col * 8, 100 + row * 10), Imgproc.FONT_HERSHEY_PLAIN, 0.5, new Scalar(0, 0, 0));
             }
             row++;
         }
@@ -69,6 +77,10 @@ public class Renderer {
 
     Size scaleSize(Mat input){
         return new Size(input.size().width * Parameters.Scale, input.size().height * Parameters.Scale);
+    }
+
+    Size scaleSize(Mat input, double scale){
+        return new Size(input.size().width * scale, input.size().height * scale);
     }
 
     public Processor getProcessor() {
