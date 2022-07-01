@@ -7,6 +7,7 @@ import org.opencv.core.Size;
 import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
+import org.opencv.videoio.VideoCapture;
 
 
 public class Renderer {
@@ -14,6 +15,7 @@ public class Renderer {
     Mat resize;
     Mat ASCII_art;
     Processor processor;
+    VideoCapture videoCapture;
 
     int offsetX = 400, offsetY = 100;
 
@@ -26,7 +28,21 @@ public class Renderer {
 //        Imgproc.rectangle(ASCII_art, new Point(0,0), new Point(1,1), new Scalar(0,0, 0), 10);
 
         Imgproc.resize(imgSource, resize, scaleSize(imgSource));
+        videoCapture = new VideoCapture(1);
         this.processor = new Processor(resize);
+    }
+    public void displayStream(){
+        videoCapture.read(imgSource);
+        HighGui.imshow("Display Stream only", imgSource);
+        HighGui.waitKey(1);
+    }
+
+    public void updateImgSourceToVideo(){
+        videoCapture.read(imgSource);
+        this.resize = imgSource.clone();
+        Imgproc.resize(imgSource, resize, scaleSize(imgSource));
+
+        processor.updateImgSource(imgSource);
     }
 
     // in a 950x540 canvas, you can fit 180 "$" cols and 50 rows spaced 10 pixels apart
@@ -47,7 +63,7 @@ public class Renderer {
         HighGui.imshow("ASCII Art ", ASCII_art);
         HighGui.imshow("Gray", processor.getGrayMat());
         HighGui.imshow("Rescaled Source", resize);
-        HighGui.waitKey(0);
+        HighGui.waitKey(100);
     }
 
     // in a 950x540 canvas, you can fit 180 "$" cols and 50 rows spaced 10 pixels apart

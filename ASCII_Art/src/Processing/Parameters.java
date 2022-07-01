@@ -4,11 +4,17 @@ public class Parameters {
     public static String ASCII_ColorScale = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'.                            ";
     public static String AssetsFolder = "/Users/kyleng/IdeaProjects/BlobDetection/ASCII_Art/src/Assets/";
 
-    //Grad picture
+    //video capture
     public static String Image = "Grad.JPG";
-    public static int Decimation = 1;
+    public static int Decimation = 4;
     public static double Scale = 0.05;
     public static int Mode = Processor.NEGATIVE_IMAGE;
+
+    //Grad picture
+//    public static String Image = "Grad.JPG";
+//    public static int Decimation = 1;
+//    public static double Scale = 0.05;
+//    public static int Mode = Processor.NEGATIVE_IMAGE;
 
     //Black and White picture
 //    public static String Image = "GrayCat.jpg";

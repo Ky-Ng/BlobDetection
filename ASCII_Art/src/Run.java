@@ -9,7 +9,13 @@ public class Run {
 
         Renderer renderer = new Renderer();
 //        renderer.displayToConsole();
-        renderer.displayToWindow();
+//        renderer.displayToWindow();
+        while (true){
+//            renderer.displayStream();
+
+            renderer.updateImgSourceToVideo();
+            renderer.displayToWindow();
+        }
 
 
     }

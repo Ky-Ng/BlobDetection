@@ -1,6 +1,7 @@
 package Processing;
 
 import org.opencv.core.Mat;
+import org.opencv.highgui.HighGui;
 import org.opencv.imgproc.Imgproc;
 
 public class Processor {
@@ -13,6 +14,11 @@ public class Processor {
         this.gray = BGR.clone();
         Imgproc.cvtColor(BGR, gray, Imgproc.COLOR_BGR2GRAY);
         System.out.println("Initialized Processor");
+    }
+
+    public void updateImgSource(Mat mat){
+        Imgproc.cvtColor(mat, this.gray, Imgproc.COLOR_BGR2GRAY);
+        HighGui.imshow("Video Stream", mat);
     }
 
     public Mat getGrayMat() {
