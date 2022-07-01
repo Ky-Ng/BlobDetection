@@ -6,11 +6,22 @@ public class Parameters {
     public static String AssetsFolder = "/Users/kyleng/IdeaProjects/BlobDetection/JavaBlobMain/src/Assets/";
 
     // blueFish
-    public static int Decimation = 30;
+//    public static int Decimation = 30;
+//    public static String ImageName = "blueFish.jpg";
+//    public static Scalar TargetRGB = new Scalar(43, 143, 253);
+//    public static int DistanceThreshold = 290;
+//    public static int ColorThreshold = 150;
+
+    // video
+    public static int Decimation = 100;
     public static String ImageName = "blueFish.jpg";
-    public static Scalar TargetRGB = new Scalar(43, 143, 253);
-    public static int DistanceThreshold = 290;
-    public static int ColorThreshold = 150;
+    // face
+//    public static Scalar TargetRGB = new Scalar(171, 124, 101);
+//    mint cliff bar
+    public static Scalar TargetRGB = new Scalar(20, 197, 215);
+    public static int DistanceThreshold = 200;
+    public static int ColorThreshold = 130;
+
 
 //    // GoldFish
 //    public static int Decimation = 30;

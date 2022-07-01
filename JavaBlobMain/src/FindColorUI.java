@@ -6,6 +6,7 @@ import org.opencv.core.Scalar;
 import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
+import org.opencv.videoio.VideoCapture;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -20,29 +21,31 @@ public class FindColorUI {
         Scanner s = new Scanner(System.in);
 
         //create image
-        Mat imgSource = Imgcodecs.imread(Parameters.AssetsFolder + Parameters.ImageName);
-        Mat drawnImage = imgSource.clone();
-        double[] BGR = new double[3];
+        Mat imgSource = new Mat();
+        Mat drawnImage;
+        VideoCapture videoCapture = new VideoCapture(1);
+        while (true) {
+            videoCapture.read(imgSource);
+            double[] BGR;
 
-        int x = 0,y = 0;
-        while (true){
-            drawnImage = imgSource.clone();
-            System.out.println("Enter X Coordinate");
-            x = s.nextInt();
-            System.out.println("Enter Y Coordinate");
-            y = s.nextInt();
-            if (y == 3333 || x == 3333){ //break condition
-                break;
-            }
-            BGR = imgSource.get(y,x);
-            System.out.println("BGR at Coordinate " + x + ", " + y + " = " + Arrays.toString(BGR));
+            int x = 0, y = 0;
 
-            Imgproc.rectangle(drawnImage, new Point(x,y), new Point(x,y), new Scalar(0,0,0), 10);
-            HighGui.imshow("Target Point", drawnImage);
-            HighGui.waitKey(30);
+                drawnImage = imgSource.clone();
+                System.out.println("Enter X Coordinate");
+                x = s.nextInt();
+                System.out.println("Enter Y Coordinate");
+                y = s.nextInt();
+
+                BGR = imgSource.get(y, x);
+                System.out.println("BGR at Coordinate " + x + ", " + y + " = " + Arrays.toString(BGR));
+
+                Imgproc.rectangle(drawnImage, new Point(x, y), new Point(x, y), new Scalar(0, 255, 0), 10);
+                HighGui.imshow("Target Point", drawnImage);
+                HighGui.waitKey(30);
+
+
+            System.out.println("RGB at Point = " + (int) BGR[2] + ", " + (int) BGR[1] + ", " + (int) BGR[0]);
 
         }
-        System.out.println("RGB at Point = " + (int)BGR[2] + ", " + (int)BGR[1] + ", " + (int)BGR[0]);
-        System.exit(0);
     }
 }
