@@ -5,10 +5,10 @@ public class Parameters {
     public static String AssetsFolder = "/Users/kyleng/IdeaProjects/BlobDetection/ASCII_Art/src/Assets/";
 
     //Grad picture
-//    public static String Image = "Grad.JPG";
-//    public static int Decimation = 1;
-//    public static double Scale = 0.25;
-//    public static int Mode = Processor.NEGATIVE_IMAGE;
+    public static String Image = "Grad.JPG";
+    public static int Decimation = 1;
+    public static double Scale = 0.05;
+    public static int Mode = Processor.NEGATIVE_IMAGE;
 
     //Black and White picture
 //    public static String Image = "GrayCat.jpg";
@@ -37,8 +37,8 @@ public class Parameters {
 //    public static int Decimation = 1;
 //    public static double Scale = 0.15;
 //    public static int Mode = Processor.NEGATIVE_IMAGE;
-public static String Image = "Movie3.png";
-    public static int Decimation = 1;
-    public static double Scale = 0.15;
-    public static int Mode = Processor.POSITIVE_IMAGE;
+//public static String Image = "Movie3.png";
+//    public static int Decimation = 1;
+//    public static double Scale = 0.15;
+//    public static int Mode = Processor.POSITIVE_IMAGE;
 }
