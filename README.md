@@ -4,8 +4,7 @@ BlobDetection is a custom Computer Vision Algorithm based on Blob Detection usin
 This algorithm only uses OpenCV for image display and pixel color reading from images; inspired by the JavaScript PS5 tutorial by the [Coding Train]([url](https://www.youtube.com/watch?v=ce-2l2wRqO8)).
 
 ![Demo Gif](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/BlobDemo.gif)
-
-![Live Gif] (https://github.com/Radagrass-the-infinite/BlobDetection/blob/Blob_VideoFeed/JavaBlobMain/src/Assets/Demo/LiveBlobGIF.gif)
+![Live Gif](https://github.com/Radagrass-the-infinite/BlobDetection/blob/Blob_VideoFeed/JavaBlobMain/src/Assets/Demo/LiveBlobGIF.gif)
 
 
 # How the Algorithm Works
