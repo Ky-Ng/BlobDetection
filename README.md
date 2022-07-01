@@ -5,6 +5,9 @@ This algorithm only uses OpenCV for image display and pixel color reading from i
 
 ![Demo Gif](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/BlobDemo.gif)
 
+![Live Gif] (https://github.com/Radagrass-the-infinite/BlobDetection/blob/Blob_VideoFeed/JavaBlobMain/src/Assets/Demo/LiveBlobGIF.gif)
+
+
 # How the Algorithm Works
 **What Are Blobs?**
 A Blob is a group of pixels that meet are similar in characteristics such as: Color, Distance, Shape, Convexity. This algorithm utilizes RGB Color and Distance.
