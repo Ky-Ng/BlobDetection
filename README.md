@@ -106,7 +106,6 @@ Below are the three steps with various cases:
 
 ![1 Source GoldFish ](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/GoldFish/1%20Source.png)
 ![2 Processing GoldFish ](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/GoldFish/2%20Processing.png)
-![3 Pre Prune GoldFish](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/GoldFish/3%20Pre%20Prune.png)
 ![4 Post Prune GoldFish](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/GoldFish/4%20Post%20Prune.png)
 
 ![1 Source BetaFish ](https://github.com/Radagrass-the-infinite/BlobDetection/blob/main/JavaBlobMain/src/Assets/Demo/BetaFish/1%20Source.png)
